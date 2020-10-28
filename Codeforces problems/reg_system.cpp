@@ -24,17 +24,17 @@ int main()
         else
         {
             string temp = database[i];
-            count = 0;
+            count = 1;
             for(j = 0; j < i; ++j)
             {
                 if(!temp.compare(database[j]))
                 {
                     flag = false;
-                    count += 1;
                     string num_app = to_string(count);
                     if(count > 1)
                         temp.pop_back();
                     temp.append(num_app);
+                    count++; 
                 }
             }
             if(flag)
