@@ -33,7 +33,7 @@ int main()
                     count += 1;
                     string num_app = to_string(count);
                     if(count > 1)
-                        temp.erase(temp.size() - 1);
+                        temp.pop_back();
                     temp.append(num_app);
                 }
             }
