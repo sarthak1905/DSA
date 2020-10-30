@@ -9,42 +9,30 @@ int main()
     long n;
     long i,j,count;
     cin >> n;
-    vector<string> database;
+    unordered_map<string,long> database;
+    vector<string> output;
     for(i = 0; i < n; ++i)
     {
         string temp;
         cin >> temp;
-        database.push_back(temp);
-    }
-    for(i = 0; i < database.size(); ++i)
-    {
-        bool flag = true;
-        if(i==0)
-            cout << "OK";
+        if(database.find(temp)==database.end())
+        {
+            database[temp] = 1;
+            output.push_back("OK");
+        }
         else
         {
-            string temp = database[i];
-            count = 1;
-            for(j = 0; j < i; ++j)
-            {
-                if(!temp.compare(database[j]))
-                {
-                    flag = false;
-                    string num_app = to_string(count);
-                    if(count > 1)
-                        temp.pop_back();
-                    temp.append(num_app);
-                    count++; 
-                }
-            }
-            if(flag)
-                cout << "\nOK";
-            else
-            {   
-                database[i] = temp;
-                cout << "\n" << temp;
-            }
+            database[temp] +=1;
+            temp.append(to_string(database[temp]-1));
+            output.push_back(temp);
         }
+    }
+    for(i = 0; i < n; ++i)
+    {
+        if(i < n-1)
+            cout << output[i] << endl;
+        else
+            cout << output[i];
     }
     return 0;
 }
