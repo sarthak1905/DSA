@@ -15,7 +15,7 @@ Node * create_node(int data)
     return ptr;
 }
 
-void insert_node(Node *np)
+void insert_node_beg(Node *np)
 {
     if(start == NULL)
         start = np;
@@ -28,13 +28,30 @@ void insert_node(Node *np)
     return;
 }
 
+void insert_node_end(Node *np)
+{
+    if (start == NULL)
+        start = np;
+    else
+    {
+        temp = new Node;
+        temp = start;
+        while(temp->next != NULL)
+            temp = temp->next;
+        temp->next = np;
+    }
+    return;
+}
+
 void display_nodes(Node *np)
 {
-    cout << "\nThe linked list is now:\n"
-    while(np!= NULL)
+    cout << "\nThe linked list is now:\n";
+    while(true)
     {
         cout << np->data << "->";
         np = np->next;
+        if (np == NULL)
+            break;
     }
     cout << endl;
     return;
@@ -47,7 +64,7 @@ int main()
     cout << "Enter data for 1st node:";
     cin >> data;
     newptr = create_node(data);
-    insert_node(newptr);
+    insert_node_beg(newptr);
     while(true)
     {
         int ch;
@@ -58,7 +75,13 @@ int main()
             cout << "Enter data:";
             cin >> data;
             newptr = create_node(data);
-            insert_node(newptr);
+            int option;
+            cout << "Press 1 to insert at the start or 2 to insert at the end:";
+            cin >> option;
+            if (option == 1)
+                insert_node_beg(newptr);
+            else
+                insert_node_end(newptr);
             cout << "Node successfully added!\n";
         }
         else if (ch == 2)
