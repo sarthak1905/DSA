@@ -28,13 +28,30 @@ void insert_node_beg(Node *np)
     return;
 }
 
+void insert_node_nth(Node *np, int n)
+{
+    cout << "\nValue of n:" << n;
+    if(start == NULL)
+        start = np;
+    else
+    {
+        Node *save;
+        temp = start;
+        for(int i = 1; i < n - 1; ++i)
+            temp = temp->next;
+        save = temp->next;
+        temp->next = np;
+        np->next = save; 
+    }
+    return;
+}
+
 void insert_node_end(Node *np)
 {
     if (start == NULL)
         start = np;
     else
     {
-        temp = new Node;
         temp = start;
         while(temp->next != NULL)
             temp = temp->next;
@@ -76,10 +93,17 @@ int main()
             cin >> data;
             newptr = create_node(data);
             int option;
-            cout << "Press 1 to insert at the start or 2 to insert at the end:";
+            cout << "1.Insert in the beginninng\n2.Insert at nth position\n3.Insert at end\nEnter your choice:";
             cin >> option;
             if (option == 1)
                 insert_node_beg(newptr);
+            else if(option == 2)
+            {
+                int n;
+                cout << "Enter value of n:";
+                cin >> n;
+                insert_node_nth(newptr, n);
+            }
             else
                 insert_node_end(newptr);
             cout << "Node successfully added!\n";
