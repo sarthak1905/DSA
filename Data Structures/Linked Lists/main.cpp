@@ -1,4 +1,4 @@
-#include "insertion_operations.cpp"
+#include "all_operations.cpp"
 
 void display_nodes(Node *np)
 {

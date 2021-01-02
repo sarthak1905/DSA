@@ -1,5 +1,3 @@
-#include "node_struct.cpp"
-
 Node * create_node(int data)
 {
     ptr = new Node;
