@@ -1,6 +1,6 @@
 Node * create_node(int data)
 {
-    ptr = new Node;
+    Node* ptr = new Node;
     ptr->data = data;
     ptr->next = NULL;
     return ptr;
@@ -12,7 +12,7 @@ void insert_node_beg(Node *np)
         start = np;
     else
     {
-        temp = start;
+        Node* temp = start;
         start = np;
         np->next = temp;
     }
@@ -27,7 +27,7 @@ void insert_node_nth(Node *np, int n)
     else
     {
         Node *save;
-        temp = start;
+        Node* temp = start;
         for(int i = 1; i < n - 1; ++i)
             temp = temp->next;
         save = temp->next;
@@ -43,7 +43,7 @@ void insert_node_end(Node *np)
         start = np;
     else
     {
-        temp = start;
+        Node* temp = start;
         while(temp->next != NULL)
             temp = temp->next;
         temp->next = np;

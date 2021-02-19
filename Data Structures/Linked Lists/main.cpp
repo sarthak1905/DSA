@@ -6,8 +6,8 @@ int main()
     int data;
     cout << "Enter data for 1st node:";
     cin >> data;
-    newptr = create_node(data);
-    insert_node_beg(newptr);
+    Node* ptr = create_node(data);
+    insert_node_beg(ptr);
     while(true)
     {
         int ch;
@@ -17,21 +17,21 @@ int main()
         {
             cout << "Enter data:";
             cin >> data;
-            newptr = create_node(data);
+            Node* ptr = create_node(data);
             int option;
             cout << "1.Insert in the beginninng\n2.Insert at nth position\n3.Insert at end\nEnter your choice:";
             cin >> option;
             if (option == 1)
-                insert_node_beg(newptr);
+                insert_node_beg(ptr);
             else if(option == 2)
             {
                 int n;
                 cout << "Enter value of n:";
                 cin >> n;
-                insert_node_nth(newptr, n);
+                insert_node_nth(ptr, n);
             }
             else
-                insert_node_end(newptr);
+                insert_node_end(ptr);
             cout << "Node successfully added!\n";
         }
         else if (ch == 2)
