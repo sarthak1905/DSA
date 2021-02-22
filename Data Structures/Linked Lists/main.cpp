@@ -11,7 +11,7 @@ int main()
     while(true)
     {
         int ch;
-        cout << "\n1.Insert\n2.Display\n3.Exit\nEnter your choice:";
+        cout << "\n1.Insert\n2.Display\n3.Delete\n4.Exit\nEnter your choice:";
         cin >> ch;
         if (ch == 1)
         {
@@ -36,6 +36,20 @@ int main()
         }
         else if (ch == 2)
             display_nodes(start);
+        else if(ch == 3)
+        {
+            cout << "Which node would you like to delete?\n1.First\n2.Nth Position\nEnter your choice:";
+            int option;
+            cin >> option;
+            if(option == 1)
+                delete_first_node();
+            else if(option == 2){
+                cout << "Enter the position you want to delete:";
+                int n;
+                cin >> n;
+                delete_nth_node(n);
+            }
+        }
         else
             break;
     }
