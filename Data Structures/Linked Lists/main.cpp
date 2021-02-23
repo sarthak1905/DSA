@@ -38,7 +38,7 @@ int main()
             display_nodes(start);
         else if(ch == 3)
         {
-            cout << "Which node would you like to delete?\n1.First\n2.Nth Position\nEnter your choice:";
+            cout << "Which node would you like to delete?\n1.First\n2.Nth Position\n3.Last Position\nEnter your choice:";
             int option;
             cin >> option;
             if(option == 1)
@@ -49,6 +49,8 @@ int main()
                 cin >> n;
                 delete_nth_node(n);
             }
+            else if(option == 3)
+                delete_last_node();
         }
         else
             break;

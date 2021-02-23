@@ -41,3 +41,15 @@ void delete_nth_node(int n)
     }
     return;
 }
+
+void delete_last_node()
+{
+    Node* temp1 = start;
+    while(temp1->next->next != NULL)
+        temp1 = temp1->next;
+    Node* temp2 = temp1->next;
+    temp1->next = NULL;
+    free(temp2);
+    cout << "Successfully deleted last node!";
+    return;
+}
