@@ -11,7 +11,7 @@ int main()
     while(true)
     {
         int ch;
-        cout << "\n1.Insert\n2.Display\n3.Delete\n4.Exit\nEnter your choice:";
+        cout << "\n1.Insert\n2.Display\n3.Delete\n4.Reverse\n5.Exit\nEnter your choice:";
         cin >> ch;
         if (ch == 1)
         {
@@ -51,6 +51,10 @@ int main()
             }
             else if(option == 3)
                 delete_last_node();
+        }
+        else if(ch == 4)
+        {
+            reverse_list();
         }
         else
             break;
