@@ -35,7 +35,18 @@ int main()
             cout << "Node successfully added!\n";
         }
         else if (ch == 2)
-            display_nodes(start);
+        {
+            cout << "How would you like to display the nodes?\n1.Iteratively\n2.Recursively\n3.Recursively Reverse";
+            cout << "\nEnter your choice:";
+            int op;
+            cin >> op;
+            if(op==1)
+                display_nodes(start);
+            else if (op==2)
+                recursive_print(start);
+            else
+                recursive_print_reverse(start);
+        }
         else if(ch == 3)
         {
             cout << "Which node would you like to delete?\n1.First\n2.Nth Position\n3.Last Position\nEnter your choice:";

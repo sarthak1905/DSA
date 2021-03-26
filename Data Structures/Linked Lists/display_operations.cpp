@@ -11,3 +11,25 @@ void display_nodes(Node *np)
     cout << endl;
     return;
 }
+
+void recursive_print(Node *np)
+{
+    if(np == NULL)
+    {
+        cout << endl;
+        return;
+    }
+    cout << np->data << "->";
+    recursive_print(np->next);
+}
+
+void recursive_print_reverse(Node *np)
+{
+    if(np==NULL)
+    {
+        cout << endl;
+        return;
+    }
+    recursive_print_reverse(np->next);
+    cout << np->data << "->";
+}
