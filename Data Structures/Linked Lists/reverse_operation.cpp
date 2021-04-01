@@ -14,3 +14,16 @@ void reverse_list()
     start = d_node;
     return;
 }
+
+void reverse_list_rec(Node *np)
+{
+    if(np->next == NULL)
+    {
+        start = np;
+        return;
+    }
+    reverse_list_rec(np->next);
+    Node *next_node = np->next;
+    next_node->next = np;
+    np->next = NULL;
+}

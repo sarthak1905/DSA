@@ -65,7 +65,15 @@ int main()
         }
         else if(ch == 4)
         {
-            reverse_list();
+            cout << "\nHow would you like to reverse the list?\n1.Iteratively\n2.Recursively\nYour choice:";
+            int option;
+            cin >> option;
+            if (option == 1)
+                reverse_list();
+            else 
+                reverse_list_rec(start);
+            cout << "\nList reversed succesfully. Displaying...";
+            display_nodes(start);
         }
         else
             break;
