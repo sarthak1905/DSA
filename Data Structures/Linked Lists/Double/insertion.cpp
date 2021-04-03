@@ -1,4 +1,4 @@
-void insert_node(Node *start, int data)
+void insert_node(int data)
 {
     Node *temp = new Node;
     if (start->next == NULL)
