@@ -1,12 +1,12 @@
 void insert_node(int data)
 {
     Node *temp = new Node;
-    if (start->next == NULL)
+    if (start == NULL)
     {
         temp->data = data;
         temp->prev = NULL;
         temp->next = NULL;
-        start->next = temp;
+        start = temp;
     }
     else
     {

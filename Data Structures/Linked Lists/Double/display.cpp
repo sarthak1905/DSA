@@ -1,7 +1,7 @@
 void display_nodes()
 {
     Node *temp = start;
-    while(temp->next != NULL)
+    while(temp != NULL)
     {
         cout << temp->data << "->";
         temp = temp->next;
