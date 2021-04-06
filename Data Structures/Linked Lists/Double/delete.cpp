@@ -1,4 +1,4 @@
-void delte_node(int n)
+void delete_node(int n)
 {
     if(start == NULL)
     {
