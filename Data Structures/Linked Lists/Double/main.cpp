@@ -5,7 +5,7 @@ int main()
     start = NULL;
     while(true)
     {
-        int option;
+        int option, n;
         cout << "1.Insert\n2.Display\n3.Delete from nth position\n4.Exit\nYour choice:";
         cin >> option;
         switch(option)
@@ -13,14 +13,15 @@ int main()
             case 1: cout << "\nEnter data for the node:";
                 int data;
                 cin >> data;
-                insert_node(data);
+                cout << "Enter the position you wish to insert the node:";
+                cin >> n;
+                insert_node(data, n);
                 break;
             
             case 2:display_nodes();
                     break;
             
             case 3: cout << "Enter the position of the node you wish to delete:";
-                int n;
                 cin >> n;
                 delete_node(n);
                 break;
