@@ -1,51 +1,68 @@
 #include<bits/stdc++.h>
 
 using namespace std;
+typedef long long ll;
 
-int* merge(int arr[], int s,int mid, int e)
+
+void combine(vector<ll>& fh, vector<ll>& sh, vector<ll>& arr)
 {
-    int D[p+q];
-    int i=s, j=mid+1, k=0;
-    while(i<p && j<q)
+    ll i = 0, j = 0, k = 0;
+    while(i < fh.size() && j < sh.size())
     {
-        if(*(B+i) < *(C+j))
-        {
-            D[k] = *(B+i);
+        if(fh[i] <= sh[j]){
+            arr[k] = fh[i];
             ++i;
         }
-        else 
-        {
-            D[k] = *(C+j);
+        else{
+            arr[k] = sh[j];
             ++j;
         }
         ++k;
     }
-    if(i == p)
-        for(i=j; j<q; ++i, ++k) D[k] = *(C+j); 
-    else 
-        for(j=i; i<p; ++j, ++k) D[k] = *(B+i);
-    return D;
+    while(j < sh.size()){
+        arr[k] = sh[j];
+        ++j;
+    }
+    while(i < fh.size()){
+        arr[k] = fh[i];
+        ++i;
+    }
+    return;
 }
 
-void mergeSort(int arr[], int s, int e)
+
+void merge_sort(vector<ll>& arr)
 {
-    if(e == 1)
-        return arr;
-    int mid = (s+e)/2;
-    mergeSort(arr, s, mid);
-    mergeSort(arr, mid+1, e);
+    ll size = arr.size();
+    if (size <= 1)
+        return;
+    ll mid = size/2;
+    vector<ll> first_half, second_half;
+    for(ll i = 0; i < mid; ++i)
+        first_half.push_back(arr[i]);
+    for(ll i = mid; i < size; ++i)
+        second_half.push_back(arr[i]);
+    
+    merge_sort(first_half);
+    merge_sort(second_half);
 
-    merge(arr, s, mid, e);
+    combine(first_half, second_half, arr);
+    return;
 }
+
 
 int main()
 {
-    int n;
+    vector<ll> arr;
+    ll n, num;
     cin >> n;
-    int arr[n];
-    for(int i=0; i<n; ++i) cin >> arr[i];
-    int* res = mergeSort(arr,0,n);
-    cout << "The sorted array is:\n";
-    for(int i=0; i<n; ++i) cout << *(res+i) << " ";
+    ll size = n;
+    while(n--){
+        cin >> num;
+        arr.push_back(num);
+    }
+    merge_sort(arr);
+    for(ll i = 0; i < size; ++i)
+        cout << arr[i] << " ";
     return 0;
-}
+} 
